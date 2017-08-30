@@ -18,7 +18,7 @@ public class GeradorDeProva {
         Scanner s= new Scanner(System.in);
         int nDiscursiva, nobjetiva;
 
-        Prova p1 = new Prova("Matemática");  
+        Prova p1 = new Prova("Fisica");  
         
         p1.setData("15/08/2017");
         p1.setLocal("Itajai - Lab 4");       
