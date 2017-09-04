@@ -4,7 +4,12 @@
  * and open the template in the editor.
  */
 package gerador.de.prova;
+
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.ArrayList;
+
 /**
  *
  * @author 6182909
@@ -15,102 +20,95 @@ public class GeradorDeProva {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner s= new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
         int nDiscursiva, nobjetiva;
 
-        Prova p1 = new Prova("Fisica");  
-        
+        Prova p1 = new Prova("Fisica");
+
         p1.setData("15/08/2017");
-        p1.setLocal("Itajai - Lab 4");       
-        
+        p1.setLocal("Itajai - Lab 4");
+
         System.out.println("Digite o nome da disciplina");
         p1.setNomeDaDisciplina(s.nextLine());
-        
+
         System.out.println("Digite o Peso da prova");
         p1.setPeso(s.nextInt());
         s.nextLine();
-        
+
         System.out.println("Digite o local da prova");
         p1.setLocal(s.nextLine());
-        
-        
+
         System.out.println("Digite a data da prova");
         p1.setData(s.nextLine());
-        
-        System.out.println("Digite o numero de questoes discursivas: ");
-        nDiscursiva = Integer.parseInt(s.nextLine());       
-        
-        Discursiva[] questoesD = new Discursiva[nDiscursiva];
-        
-        int i;
-        for (i=0; i<nDiscursiva; i++){
-            questoesD[i] = new Discursiva();
-            
-            i++;
-            System.out.println("Pergunta da questão " + i);
-            i--;
-            questoesD[i].setPergunta(s.nextLine());
-            
-            
-            System.out.println("Peso: ");
-            
-            questoesD[i].setPeso(Integer.parseInt(s.nextLine()));
-            
-            
-            System.out.println("Criterio de avaliação");
-            questoesD[i].setCriteriosCorrecao(s.nextLine());
+
+        while (true) {
+            System.out.print("\nQual o tipo de questão que deseja inserir?");
+            System.out.print("\n-O para Objetiva \n-D para Discursiva \n-X para sair\n ");
+            String decisao = s.nextLine();
+
+            if (decisao.equalsIgnoreCase("X")) {
+                break;
+            } else if (decisao.equalsIgnoreCase("D")) {
+                Discursiva questoesD = new Discursiva();
+                System.out.println("Pergunta da questão: ");
+                questoesD.setPergunta(s.nextLine());
+
+                System.out.println("Peso: ");
+                questoesD.setPeso(Integer.parseInt(s.nextLine()));
+
+                System.out.println("Criterio de avaliação");
+                questoesD.setCriteriosCorrecao(s.nextLine());
+
+                p1.getListaQuestoes().add(questoesD);
+            } else if (decisao.equalsIgnoreCase("O")) {
+                Objetiva questoesO = new Objetiva();
+                String[] auxiliar = new String[5];
+
+                System.out.println("Pergunta da questão: ");
+                questoesO.setPergunta(s.nextLine());
+
+                System.out.println("Peso: ");
+                questoesO.setPeso(Integer.parseInt(s.nextLine()));
+
+                System.out.print("A) ");
+                auxiliar[0] = s.nextLine();
+
+                System.out.print("B) ");
+                auxiliar[1] = s.nextLine();
+
+                System.out.print("C) ");
+                auxiliar[2] = s.nextLine();
+
+                System.out.print("D) ");
+                auxiliar[3] = s.nextLine();
+
+                System.out.print("E) ");
+                auxiliar[4] = s.nextLine();
+
+                questoesO.setOpcoes(auxiliar);
+
+                System.out.println("Questão correta");
+                questoesO.setRespostaCorreta(Integer.parseInt(s.nextLine()));
+
+                p1.getListaQuestoes().add(questoesO);
+
+            }
+
         }
-        p1.setQuestaoD(questoesD);
+
+        System.out.println("\n\n" + p1.obtemProvaImpressao());
+
         
-        System.out.println("Digite o numero de questoes Objetivas: ");
-        nobjetiva = Integer.parseInt(s.nextLine());      
-        
-        Objetiva[] questoesO = new Objetiva [nobjetiva];
-        String[] auxiliar;
-        
-        for (i=0; i<nobjetiva; i++){
-            auxiliar= new String [5];
-            questoesO[i]=new Objetiva();            
-         
-            i++;
-            System.out.println("Pergunta da questão " + i);
-            i--;
-            questoesO[i].setPergunta(s.nextLine());
-            
-            
-            System.out.println("Peso: ");
-            questoesO[i].setPeso(Integer.parseInt(s.nextLine()));
-            
-            
-            System.out.print("A) ");
-            auxiliar[0]= s.nextLine();
-            
-            System.out.print("B) ");
-            auxiliar[1]= s.nextLine();
-            
-            System.out.print("C) ");
-            auxiliar[2]= s.nextLine();
-            
-            System.out.print("D) ");
-            auxiliar[3]= s.nextLine();
-            
-            System.out.print("E) ");
-            auxiliar[4]= s.nextLine();
-            
-            questoesO[i].setOpcoes(auxiliar);
-            
-            System.out.println("Questão correta");
-            questoesO[i].setRespostaCorreta(Integer.parseInt(s.nextLine()));
-            
+
+        try {
+            PrintWriter pw = new PrintWriter("Documento.docx");
+            pw.println(p1.obtemProvaImpressao());          
+            pw.flush();
+            pw.close();
+        } catch (Exception e) {
+            System.out.println("Não foi possivel abrir ou criar o arquivo");
         }
-        
-        p1.setQuestaoO(questoesO);
-        
-        System.out.println("\n\n"+p1.obtemProvaImpressao());
-        //System.out.println (p1.obtemDetmatealhes());
-        
-        
-        
+
     }
-    
+
 }

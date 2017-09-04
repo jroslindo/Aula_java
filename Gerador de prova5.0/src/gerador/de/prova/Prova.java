@@ -5,6 +5,8 @@
  */
 package gerador.de.prova;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 6182909
@@ -15,13 +17,11 @@ public class Prova {
     private int peso;
     private String local;
     private String data;
-    private Objetiva[] questaoO;
-    private Discursiva[] questaoD;
+    private ArrayList<Questao> listaQuestoes;
    
     
     public Prova(String nome){
-        this.nomeDaDisciplina = nome;
-        this.peso = 10;
+        this.listaQuestoes = new ArrayList();
     }
          
     public String obtemDetalhes(){
@@ -37,14 +37,8 @@ public class Prova {
     public String obtemProvaImpressao(){
         String auxiliar=obtemDetalhes()+"\n\n";
         
-        System.out.println ("\n\nTeste:" + this.getQuestaoD()[0].getPergunta());
-        
-        for (int i=0; i<this.getQuestaoD().length; i++){
-            auxiliar += this.getQuestaoD()[i].retornaQuestao();
-        }
-        
-        for (int i=0; i<this.getQuestaoO().length; i++){
-            auxiliar += this.getQuestaoO()[i].retornaQuestao();
+        for(int i = 0; i<this.getListaQuestoes().size(); i++){
+            auxiliar += "\n" + (i+1) + ")" + this.listaQuestoes.get(i).retornaQuestao();
         }
         
         
@@ -81,39 +75,21 @@ public class Prova {
 
     public void setData(String data) {
         this.data = data;
-    }
-    
-    /*public String obtemProvaImpressao(){
-        String impressao="";
-        
-        return impressao;
-    }*/
+    } 
 
     /**
-     * @return the questaoO
+     * @return the listaQuestoes
      */
-    public Objetiva[] getQuestaoO() {
-        return questaoO;
+    public ArrayList<Questao> getListaQuestoes() {
+        return listaQuestoes;
     }
 
     /**
-     * @param questaoO the questaoO to set
+     * @param listaQuestoes the listaQuestoes to set
      */
-    public void setQuestaoO(Objetiva[] questaoO) {
-        this.questaoO = questaoO;
+    public void setListaQuestoes(ArrayList<Questao> listaQuestoes) {
+        this.listaQuestoes = listaQuestoes;
     }
 
-    /**
-     * @return the questaoD
-     */
-    public Discursiva[] getQuestaoD() {
-        return questaoD;
-    }
-
-    /**
-     * @param questaoD the questaoD to set
-     */
-    public void setQuestaoD(Discursiva[] questaoD) {
-        this.questaoD = questaoD;
-    }
+   
 }
