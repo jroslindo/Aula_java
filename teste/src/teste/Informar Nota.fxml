@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="teste.InformarNotaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Informar nota">
          <font>
@@ -50,12 +49,12 @@
          </font>
       </Label>
       <TextField layoutX="88.0" layoutY="266.0" prefHeight="25.0" prefWidth="267.0" />
-      <Button layoutX="85.0" layoutY="642.0" mnemonicParsing="false" text="Voltar">
+      <Button layoutX="104.0" layoutY="330.0" mnemonicParsing="false" onAction="#voltar" text="Voltar">
          <font>
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="841.0" layoutY="642.0" mnemonicParsing="false" text="Salvar">
+      <Button layoutX="370.0" layoutY="189.0" mnemonicParsing="false" text="Salvar">
          <font>
             <Font name="Comic Sans MS" size="14.0" />
          </font>

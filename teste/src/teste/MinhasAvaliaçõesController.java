@@ -7,6 +7,8 @@ package teste;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -14,7 +16,11 @@ import javafx.fxml.Initializable;
  *
  * @author João
  */
-public class MinhasAvaliaçõesController implements Initializable {
+public class MinhasAvaliaçõesController extends InterfaceUsuario {
+
+    public MinhasAvaliaçõesController() {
+        super("Minhas Avaliações.fxml");
+    }
 
     /**
      * Initializes the controller class.
@@ -23,5 +29,22 @@ public class MinhasAvaliaçõesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    @FXML
+    public void vaiParaNovaAvaliação (ActionEvent evento){
+        AdicionarNovaAvaliaçãoController proximaTela = new AdicionarNovaAvaliaçãoController();
+        GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
+    }
+    
+    @FXML
+    public void vaiParaInformarNota (ActionEvent evento){
+        InformarNotaController proximaTela = new InformarNotaController();
+        GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
+    }
+    
+    @FXML
+    public void voltar (ActionEvent evento){        
+        GerenciadorJanela.obterInstancia().voltar();
+    }
     
 }

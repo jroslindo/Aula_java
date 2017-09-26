@@ -18,13 +18,9 @@ import javafx.stage.Stage;
 public class Teste extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("JanelaPrincipal.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage primaryStage)  {
+        JanelaPrincipalController primeiraTela = new JanelaPrincipalController();
+        GerenciadorJanela.obterInstancia().inicializaPalco(primaryStage, primeiraTela);
     }
 
     /**

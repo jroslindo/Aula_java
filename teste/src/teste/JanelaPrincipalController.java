@@ -16,20 +16,26 @@ import javafx.scene.control.Label;
  *
  * @author João
  */
-public class JanelaPrincipalController implements Initializable {
+public class JanelaPrincipalController extends InterfaceUsuario {
     
     @FXML
     private Label label;
-    
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+
+    public JanelaPrincipalController() {
+        super("JanelaPrincipal.fxml");
     }
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    @FXML
+    public void VaiParaMinhasAvaliacoes (ActionEvent evento){
+        MinhasAvaliaçõesController proximaTela = new MinhasAvaliaçõesController();
+        GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
+    }
     
 }
