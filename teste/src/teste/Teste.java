@@ -5,6 +5,7 @@
  */
 package teste;
 
+import java.io.PrintWriter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
 public class Teste extends Application {
     
     @Override
-    public void start(Stage primaryStage)  {
+    public void start(Stage primaryStage)  {   
         JanelaPrincipalController primeiraTela = new JanelaPrincipalController();
         GerenciadorJanela.obterInstancia().inicializaPalco(primaryStage, primeiraTela);
     }

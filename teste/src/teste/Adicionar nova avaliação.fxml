@@ -19,13 +19,13 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="76.0" layoutY="115.0" prefHeight="26.0" prefWidth="484.0" />
+      <TextField fx:id="textNome" layoutX="76.0" layoutY="115.0" prefHeight="26.0" prefWidth="484.0" />
       <Label layoutX="81.0" layoutY="151.0" text="Peso:">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="92.0" layoutY="179.0" prefHeight="26.0" prefWidth="467.0" />
+      <TextField fx:id="textPeso" layoutX="92.0" layoutY="179.0" prefHeight="26.0" prefWidth="467.0" />
       <Label layoutX="86.0" layoutY="232.0" text="Disciplina:">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
@@ -41,7 +41,7 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="447.0" layoutY="239.0" mnemonicParsing="false" text="Salvar">
+      <Button layoutX="447.0" layoutY="239.0" mnemonicParsing="false" onAction="#salvar" text="Salvar">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
