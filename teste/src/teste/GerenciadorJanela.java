@@ -7,6 +7,7 @@ package teste;
 
 import java.util.Stack;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -31,7 +32,9 @@ public class GerenciadorJanela {
     
     private Stage palco;
     private Stack<InterfaceUsuario> pilhaRetorno;
-    private InterfaceUsuario janelaAtual;
+    private InterfaceUsuario janelaAtual;   
+   
+    
     
     public void inicializaPalco(Stage p, InterfaceUsuario interfaceInicial){
         this.palco = p;

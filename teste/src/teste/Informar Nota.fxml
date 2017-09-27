@@ -48,13 +48,13 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="88.0" layoutY="266.0" prefHeight="25.0" prefWidth="267.0" />
+      <TextField fx:id="notaid" layoutX="88.0" layoutY="266.0" prefHeight="25.0" prefWidth="267.0" />
       <Button layoutX="104.0" layoutY="330.0" mnemonicParsing="false" onAction="#voltar" text="Voltar">
          <font>
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="370.0" layoutY="189.0" mnemonicParsing="false" text="Salvar">
+      <Button layoutX="370.0" layoutY="189.0" mnemonicParsing="false" onAction="#salvar" text="Salvar">
          <font>
             <Font name="Comic Sans MS" size="14.0" />
          </font>

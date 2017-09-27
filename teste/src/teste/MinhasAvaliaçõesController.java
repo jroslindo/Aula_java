@@ -50,29 +50,47 @@ public class MinhasAvaliaçõesController extends InterfaceUsuario {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ArrayList <Avaliacao> arrayDeAvaliacoes = Avaliacao.obterListaAvaliacoes();
-        
-        ObservableList<Avaliacao> slaoq = FXCollections.observableArrayList(arrayDeAvaliacoes);
-        
-        nomeid.setCellValueFactory(new PropertyValueFactory<Avaliacao,String> ("nome"));
-        tabelaid.setItems(slaoq);
+        MinhasAvaliaçõesController.this.atualizar();
     }    
     
     @FXML
-    public void vaiParaNovaAvaliação (ActionEvent evento){
-        AdicionarNovaAvaliaçãoController proximaTela = new AdicionarNovaAvaliaçãoController();
+    public void vaiParaNovaAvaliação (ActionEvent evento){        
+        AdicionarNovaAvaliaçãoController proximaTela = new AdicionarNovaAvaliaçãoController();        
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
     }
     
     @FXML
     public void vaiParaInformarNota (ActionEvent evento){
+        int posi = tabelaid.getSelectionModel().getSelectedItem().getIdentificadorNoArquivo();        
         InformarNotaController proximaTela = new InformarNotaController();
+        proximaTela.index=posi;
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
     }
     
     @FXML
     public void voltar (ActionEvent evento){        
         GerenciadorJanela.obterInstancia().voltar();
+    }
+    
+    public void atualizar (){
+        ArrayList <Avaliacao> arrayDeAvaliacoes = Avaliacao.obterListaAvaliacoes();        
+        ObservableList<Avaliacao> Colecao = FXCollections.observableArrayList();
+        
+        int i=0;
+        while (i<arrayDeAvaliacoes.size()){
+            Colecao.add(arrayDeAvaliacoes.get(i));
+            i++;
+        }
+        
+        
+        nomeid.setCellValueFactory(new PropertyValueFactory<Avaliacao,String> ("nome"));
+        disciplinaid.setCellValueFactory(new PropertyValueFactory<Avaliacao,String> ("disciplina"));
+        pesoid.setCellValueFactory(new PropertyValueFactory<Avaliacao,String> ("peso"));
+        mediaid.setCellValueFactory(new PropertyValueFactory<Avaliacao,String> ("media"));
+        minhaNotaid.setCellValueFactory(new PropertyValueFactory<Avaliacao,String> ("nota"));
+        
+        
+        tabelaid.setItems(Colecao);
     }
     
 }

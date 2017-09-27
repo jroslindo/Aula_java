@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -40,6 +41,7 @@ public class AdicionarNovaAvaliaçãoController extends InterfaceUsuario{
     @FXML
     private TextField textPeso;    
     
+    public MinhasAvaliaçõesController referencia;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -62,7 +64,10 @@ public class AdicionarNovaAvaliaçãoController extends InterfaceUsuario{
         salvada.setMedia (((String) ComboMs.getValue()).toCharArray());
         salvada.salvar();
         
-        GerenciadorJanela.obterInstancia().voltar();
+        
+        
+        salvada.atualizar();
+        //GerenciadorJanela.obterInstancia().voltar();
         
     }
 }

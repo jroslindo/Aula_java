@@ -22,11 +22,19 @@ import java.util.logging.Logger;
  */
 public class Avaliacao {
 
+    /**
+     * @return the disciplina
+     */
+    public String getDisciplina() {
+        return disciplina;
+    }
+
     private String nome;
     private String disciplina;
     private Double peso;
     private char[] media = new char[2];
     private Double nota;
+    
 
     // <<Controle>>
     private int identificadorNoArquivo;
@@ -40,16 +48,17 @@ public class Avaliacao {
 
             String linha = lerArq.readLine();
             while (linha != null) {
-                System.out.printf("%s\n", linha);
-                String[] separado = linha.split(",");
+               String[] separado =new String[5];               
+               separado=linha.split(",");
                 Avaliacao av = new Avaliacao();
-                av.setNome(separado[0]);
+                av.setNome(separado[0]);                
                 av.setDisciplina(separado[1]);
                 av.setMedia(separado[2].toCharArray());
-                av.setPeso(Double.parseDouble(separado[3]));
-                av.setIdentificadorNoArquivo(index);
+                av.setPeso(Double.parseDouble(separado[3]));                
+                av.setNota(Double.parseDouble(separado[4])); 
+                av.setIdentificadorNoArquivo(index);                
                 index++;
-                retorno.add(av);
+                retorno.add(av);                
                 linha = lerArq.readLine(); // lê da segunda até a última linha
             }
             
@@ -57,21 +66,27 @@ public class Avaliacao {
         } catch (IOException e) {
             System.err.printf("Erro na abertura do arquivo: %s.\n",
                     e.getMessage());
-        }
-
+        }      
         return retorno;
     }
-
+   
     public void salvar() { //escreve no arquivo
         try {
             File arquivo = new File("Relatorio.csv");
             FileWriter fw = new FileWriter(arquivo, true);
-            fw.write(this.nome + "," + this.disciplina + "," + this.media[0] + this.media[1] + "," + this.peso + "," + "\n");
+            fw.write(this.getNome() + "," + this.getDisciplina() + "," + this.getMedia()[0] + this.getMedia()[1] + "," + this.getPeso() + ",0" + "\n");
             fw.flush();
             fw.close();
         } catch (Exception e) {
             System.out.println("Não foi possivel abrir ou criar o arquivo");
         }
+    }
+    
+    public void atualizar (){
+        GerenciadorJanela.obterInstancia().voltar(2);
+        MinhasAvaliaçõesController proximaTela = new MinhasAvaliaçõesController();
+        GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
+        
     }
 
     /**
@@ -114,5 +129,40 @@ public class Avaliacao {
      */
     public void setIdentificadorNoArquivo(int identificadorNoArquivo) {
         this.identificadorNoArquivo = identificadorNoArquivo;
+    }
+
+    /**
+     * @return the peso
+     */
+    public Double getPeso() {
+        return peso;
+    }
+
+    /**
+     * @return the media
+     */
+    public char[] getMedia() {
+        return media;
+    }
+
+    /**
+     * @return the nota
+     */
+    public Double getNota() {
+        return nota;
+    }
+
+    /**
+     * @return the identificadorNoArquivo
+     */
+    public int getIdentificadorNoArquivo() {
+        return identificadorNoArquivo;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
     }
 }
