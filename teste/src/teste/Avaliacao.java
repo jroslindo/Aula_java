@@ -5,29 +5,68 @@
  */
 package teste;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author joao
  */
 public class Avaliacao {
+
     private String nome;
     private String disciplina;
     private Double peso;
-    private char[] media = new char [2];
+    private char[] media = new char[2];
     private Double nota;
-    
+
     // <<Controle>>
     private int identificadorNoArquivo;
-    
-    public void salvar(){ //escreve no arquivo
-        try {       
+
+    static public ArrayList<Avaliacao> obterListaAvaliacoes() {
+        ArrayList<Avaliacao> retorno = new ArrayList();
+        int index = 0;
+        try {
+            FileReader arq = new FileReader("Relatorio.csv");
+            BufferedReader lerArq = new BufferedReader(arq);
+
+            String linha = lerArq.readLine();
+            while (linha != null) {
+                System.out.printf("%s\n", linha);
+                String[] separado = linha.split(",");
+                Avaliacao av = new Avaliacao();
+                av.setNome(separado[0]);
+                av.setDisciplina(separado[1]);
+                av.setMedia(separado[2].toCharArray());
+                av.setPeso(Double.parseDouble(separado[3]));
+                av.setIdentificadorNoArquivo(index);
+                index++;
+                retorno.add(av);
+                linha = lerArq.readLine(); // lê da segunda até a última linha
+            }
+            
+            arq.close();
+        } catch (IOException e) {
+            System.err.printf("Erro na abertura do arquivo: %s.\n",
+                    e.getMessage());
+        }
+
+        return retorno;
+    }
+
+    public void salvar() { //escreve no arquivo
+        try {
             File arquivo = new File("Relatorio.csv");
-            FileWriter fw = new FileWriter(arquivo, true);  
-            fw.write(this.nome + ", " + this.disciplina + ", " + this.peso+"\n");
+            FileWriter fw = new FileWriter(arquivo, true);
+            fw.write(this.nome + "," + this.disciplina + "," + this.media[0] + this.media[1] + "," + this.peso + "," + "\n");
             fw.flush();
             fw.close();
         } catch (Exception e) {

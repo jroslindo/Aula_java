@@ -24,13 +24,13 @@
             <Font name="Comic Sans MS" size="12.0" />
          </font>
       </Button>
-      <TableView layoutX="16.0" layoutY="143.0" prefHeight="213.0" prefWidth="569.0">
+      <TableView fx:id="tabelaid" layoutX="16.0" layoutY="143.0" prefHeight="213.0" prefWidth="569.0">
         <columns>
-          <TableColumn prefWidth="211.3333282470703" text="Nome" />
-          <TableColumn minWidth="0.0" prefWidth="163.6666717529297" text="Disciplina" />
-            <TableColumn prefWidth="56.333343505859375" text="Media" />
-            <TableColumn prefWidth="44.333343505859375" text="Peso" />
-            <TableColumn prefWidth="93.33331298828125" text="Minha nota" />
+          <TableColumn fx:id="nomeid" prefWidth="211.3333282470703" text="Nome" />
+          <TableColumn fx:id="disciplinaid" minWidth="0.0" prefWidth="163.6666717529297" text="Disciplina" />
+            <TableColumn fx:id="mediaid" prefWidth="56.333343505859375" text="Media" />
+            <TableColumn fx:id="pesoid" prefWidth="44.333343505859375" text="Peso" />
+            <TableColumn fx:id="minhaNotaid" prefWidth="93.33331298828125" text="Minha nota" />
         </columns>
       </TableView>
       <Button layoutX="101.0" layoutY="356.0" maxHeight="-Infinity" mnemonicParsing="false" onAction="#voltar" prefHeight="28.0" prefWidth="63.0" text="Voltar">

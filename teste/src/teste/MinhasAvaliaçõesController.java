@@ -6,10 +6,16 @@
 package teste;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -21,13 +27,35 @@ public class MinhasAvaliaçõesController extends InterfaceUsuario {
     public MinhasAvaliaçõesController() {
         super("Minhas Avaliações.fxml");
     }
+    
+    
+    @FXML 
+    TableView<Avaliacao> tabelaid;
+    @FXML
+    TableColumn<Avaliacao,String> nomeid;
+    @FXML
+    TableColumn<Avaliacao,String> disciplinaid;
+    @FXML
+    TableColumn<Avaliacao,String> mediaid;
+    @FXML
+    TableColumn<Avaliacao,String> pesoid;
+    @FXML
+    TableColumn<Avaliacao,String> minhaNotaid;
+    
+    
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ArrayList <Avaliacao> arrayDeAvaliacoes = Avaliacao.obterListaAvaliacoes();
+        
+        ObservableList<Avaliacao> slaoq = FXCollections.observableArrayList(arrayDeAvaliacoes);
+        
+        nomeid.setCellValueFactory(new PropertyValueFactory<Avaliacao,String> ("nome"));
+        tabelaid.setItems(slaoq);
     }    
     
     @FXML
