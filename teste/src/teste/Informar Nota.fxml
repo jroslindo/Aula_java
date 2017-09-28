@@ -18,7 +18,7 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="153.0" layoutY="87.0" text="Nome aki">
+      <Label fx:id="nomeid" layoutX="153.0" layoutY="87.0" text="Nome aki">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="189.0" layoutY="130.0" text="Disciplina aki">
+      <Label fx:id="disciplinaid" layoutX="189.0" layoutY="130.0" text="Disciplina aki">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
@@ -38,7 +38,7 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="153.0" layoutY="168.0" text="Média aki:">
+      <Label fx:id="mediaid" layoutX="153.0" layoutY="168.0" text="Média aki:">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>

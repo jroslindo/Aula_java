@@ -22,9 +22,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author João
  */
-public class MinhasAvaliaçõesController extends InterfaceUsuario {
+public class MinhasAvaliacoesController extends InterfaceUsuario {
 
-    public MinhasAvaliaçõesController() {
+    public MinhasAvaliacoesController() {
         super("Minhas Avaliações.fxml");
     }
     
@@ -50,19 +50,22 @@ public class MinhasAvaliaçõesController extends InterfaceUsuario {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        MinhasAvaliaçõesController.this.atualizar();
+        MinhasAvaliacoesController.this.atualizar();
     }    
     
     @FXML
     public void vaiParaNovaAvaliação (ActionEvent evento){        
-        AdicionarNovaAvaliaçãoController proximaTela = new AdicionarNovaAvaliaçãoController();        
+        AdicionarNovaAvaliacaoController proximaTela = new AdicionarNovaAvaliacaoController();        
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
     }
     
     @FXML
     public void vaiParaInformarNota (ActionEvent evento){
-        int posi = tabelaid.getSelectionModel().getSelectedItem().getIdentificadorNoArquivo();        
+        int posi = tabelaid.getSelectionModel().getSelectedItem().getIdentificadorNoArquivo();           
         InformarNotaController proximaTela = new InformarNotaController();
+        proximaTela.nome=tabelaid.getSelectionModel().getSelectedItem().getNome();
+        proximaTela.Disciplina=tabelaid.getSelectionModel().getSelectedItem().getDisciplina();
+        proximaTela.media=tabelaid.getSelectionModel().getSelectedItem().getMedia();
         proximaTela.index=posi;
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
     }

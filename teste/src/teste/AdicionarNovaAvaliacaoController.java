@@ -21,9 +21,9 @@ import javafx.scene.control.TextField;
  *
  * @author João
  */
-public class AdicionarNovaAvaliaçãoController extends InterfaceUsuario{
+public class AdicionarNovaAvaliacaoController extends InterfaceUsuario{
 
-    public AdicionarNovaAvaliaçãoController() {
+    public AdicionarNovaAvaliacaoController() {
         super("Adicionar nova avaliação.fxml");
     }    
     ObservableList<String> ListaDeDisciplinas = FXCollections.observableArrayList("Fisica", "Matematica");
@@ -41,7 +41,7 @@ public class AdicionarNovaAvaliaçãoController extends InterfaceUsuario{
     @FXML
     private TextField textPeso;    
     
-    public MinhasAvaliaçõesController referencia;
+    public MinhasAvaliacoesController referencia;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -61,7 +61,7 @@ public class AdicionarNovaAvaliaçãoController extends InterfaceUsuario{
         salvada.setNome(textNome.getText());
         salvada.setPeso(Double.parseDouble(textPeso.getText()));
         salvada.setDisciplina((String) ComboDisciplina.getValue());
-        salvada.setMedia (((String) ComboMs.getValue()).toCharArray());
+        salvada.setMedia (((String)ComboMs.getValue()));
         salvada.salvar();
         
         

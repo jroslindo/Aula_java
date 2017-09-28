@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
@@ -29,14 +30,27 @@ public class InformarNotaController extends InterfaceUsuario {
         super("Informar Nota.fxml");
     }
     public int index;
+    public String nome;
+    public String media;
+    public String Disciplina;
     @FXML 
     public TextField notaid;
+    @FXML 
+    public Label nomeid;
+    @FXML 
+    public Label disciplinaid;
+    @FXML 
+    public Label mediaid;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        nomeid.setText(nome);
+        disciplinaid.setText(Disciplina);
+        mediaid.setText(media);
+        
     }    
     
     @FXML
@@ -67,10 +81,10 @@ public class InformarNotaController extends InterfaceUsuario {
         salva.remove(index);
         salva.add(index, modifica);
         int i=0;
-        while (i < salva.size()){
+       /* while (i < salva.size()){
             System.out.println(salva.get(i));
             i++;
-        }
+        }*/
         
         try {
             File arquivo = new File("Relatorio.csv");

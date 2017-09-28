@@ -34,7 +34,7 @@ public class JanelaPrincipalController extends InterfaceUsuario {
     
     @FXML
     public void VaiParaMinhasAvaliacoes (ActionEvent evento){
-        MinhasAvaliaçõesController proximaTela = new MinhasAvaliaçõesController();
+        MinhasAvaliacoesController proximaTela = new MinhasAvaliacoesController();
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
     }
     

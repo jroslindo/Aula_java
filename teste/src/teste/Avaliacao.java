@@ -32,7 +32,7 @@ public class Avaliacao {
     private String nome;
     private String disciplina;
     private Double peso;
-    private char[] media = new char[2];
+    private String media;
     private Double nota;
     
 
@@ -53,7 +53,7 @@ public class Avaliacao {
                 Avaliacao av = new Avaliacao();
                 av.setNome(separado[0]);                
                 av.setDisciplina(separado[1]);
-                av.setMedia(separado[2].toCharArray());
+                av.setMedia(separado[2]);
                 av.setPeso(Double.parseDouble(separado[3]));                
                 av.setNota(Double.parseDouble(separado[4])); 
                 av.setIdentificadorNoArquivo(index);                
@@ -74,7 +74,7 @@ public class Avaliacao {
         try {
             File arquivo = new File("Relatorio.csv");
             FileWriter fw = new FileWriter(arquivo, true);
-            fw.write(this.getNome() + "," + this.getDisciplina() + "," + this.getMedia()[0] + this.getMedia()[1] + "," + this.getPeso() + ",0" + "\n");
+            fw.write(this.getNome() + "," + this.getDisciplina() + "," + this.getMedia() + "," + this.getPeso() + ",0" + "\n");
             fw.flush();
             fw.close();
         } catch (Exception e) {
@@ -84,7 +84,7 @@ public class Avaliacao {
     
     public void atualizar (){
         GerenciadorJanela.obterInstancia().voltar(2);
-        MinhasAvaliaçõesController proximaTela = new MinhasAvaliaçõesController();
+        MinhasAvaliacoesController proximaTela = new MinhasAvaliacoesController();
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
         
     }
@@ -113,9 +113,7 @@ public class Avaliacao {
     /**
      * @param media the media to set
      */
-    public void setMedia(char[] media) {
-        this.media = media;
-    }
+    
 
     /**
      * @param nota the nota to set
@@ -141,9 +139,7 @@ public class Avaliacao {
     /**
      * @return the media
      */
-    public char[] getMedia() {
-        return media;
-    }
+    
 
     /**
      * @return the nota
@@ -164,5 +160,19 @@ public class Avaliacao {
      */
     public String getNome() {
         return nome;
+    }
+
+    /**
+     * @return the media
+     */
+    public String getMedia() {
+        return media;
+    }
+
+    /**
+     * @param media the media to set
+     */
+    public void setMedia(String media) {
+        this.media = media;
     }
 }
