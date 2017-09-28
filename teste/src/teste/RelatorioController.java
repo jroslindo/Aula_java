@@ -5,7 +5,11 @@
  */
 package teste;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,34 +35,91 @@ public class RelatorioController extends InterfaceUsuario {
      * Initializes the controller class.
      */
     @FXML
-    private BarChart<?,?> graficoid;
+    private BarChart<?, ?> graficoid;
     @FXML
     private CategoryAxis xid;
     @FXML
     private NumberAxis yid;
-    
-    
+
     ObservableList<String> ListaDeDisciplinas = FXCollections.observableArrayList("Fisica", "Matematica");
 
     public RelatorioController() {
         super("Relatorio.fxml");
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Comboid.setItems(ListaDeDisciplinas);
-    }  
-    public void voltar (ActionEvent evento){
+    }
+
+    public void voltar(ActionEvent evento) {
         GerenciadorJanela.obterInstancia().voltar();
     }
-    
+
     @FXML
-    public void Mostrar (){  
-        //grafico   
+    public void Mostrar() {
+
+        ArrayList<String> salva = new ArrayList();
+        try {
+            FileReader arq = new FileReader("Relatorio.csv");
+            BufferedReader lerArq = new BufferedReader(arq);
+
+            String linha = lerArq.readLine();
+            while (linha != null) {
+                salva.add(linha);
+                linha = lerArq.readLine();
+            }
+            arq.close();
+        } catch (IOException e) {
+            System.err.printf("Erro na abertura do arquivo: %s.\n",
+                    e.getMessage());
+        }
+
+        String dado = new String();
+        Double m1 = 0.0;
+        Double m2 = 0.0;
+        Double m3 = 0.0;
+        Double pesoTotalM1 = 0.0;
+        Double pesoTotalM2 = 0.0;
+        Double pesoTotalM3 = 0.0;
+        int i = 0;
+        while (i < salva.size()) {
+            String[] separa = salva.get(i).split(",");
+
+            if (separa[0].equals(Comboid.getValue()) && separa[1].equals("M1")) {
+                m1 += Double.parseDouble(separa[4]) * Double.parseDouble(separa[3]);
+                pesoTotalM1 += Double.parseDouble(separa[3]);
+            }
+
+            if (separa[0].equals(Comboid.getValue()) && separa[1].equals("M2")) {
+                m2 += Double.parseDouble(separa[4]) * Double.parseDouble(separa[3]);
+                pesoTotalM2 += Double.parseDouble(separa[3]);
+            }
+
+            if (separa[0].equals(Comboid.getValue()) && separa[1].equals("M3")) {
+                m3 += Double.parseDouble(separa[4]) * Double.parseDouble(separa[3]);
+                pesoTotalM3 += Double.parseDouble(separa[3]);
+            }
+            i++;
+        }
+        if (pesoTotalM1 != 0) {
+            m1 = m1 / pesoTotalM1;
+        }
+        if (pesoTotalM2 != 0) {
+            m2 = m2 / pesoTotalM2;
+        }
+        if (pesoTotalM3 != 0) {
+            m3 = m3 / pesoTotalM3;
+        }
+
+        Double mf = Avaliacao.calculaMediaDaDisciplina(m1, m2, m3);
         XYChart.Series setTira = new XYChart.Series();
-        
-        setTira.getData().add(new XYChart.Data("M1", 10));
-        setTira.getData().add(new XYChart.Data("M2", 5));
+        setTira.getData().add(new XYChart.Data("M1", m1));
+        setTira.getData().add(new XYChart.Data("M2", m2));
+        setTira.getData().add(new XYChart.Data("M3", m3));
+        setTira.getData().add(new XYChart.Data("MF", mf));
         graficoid.getData().addAll(setTira);
+
     }
-    
+
 }

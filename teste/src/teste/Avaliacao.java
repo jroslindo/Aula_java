@@ -37,6 +37,17 @@ public class Avaliacao {
     
 
     // <<Controle>>
+    
+    static public Double calculaMediaDaDisciplina(Double m1, Double m2, Double m3){
+        
+        return (m1+m2+m3)/3;
+    }
+    
+    
+    
+    
+    
+    
     private int identificadorNoArquivo;
 
     static public ArrayList<Avaliacao> obterListaAvaliacoes() {
@@ -51,11 +62,11 @@ public class Avaliacao {
                String[] separado =new String[5];               
                separado=linha.split(",");
                 Avaliacao av = new Avaliacao();
-                av.setNome(separado[0]);                
-                av.setDisciplina(separado[1]);
-                av.setMedia(separado[2]);
+                av.setNome(separado[2]);                
+                av.setDisciplina(separado[0]);
+                av.setMedia(separado[1]);
                 av.setPeso(Double.parseDouble(separado[3]));                
-                av.setNota(Double.parseDouble(separado[4])); 
+                av.setNota(Double.parseDouble(separado[4]));  //trocar aki
                 av.setIdentificadorNoArquivo(index);                
                 index++;
                 retorno.add(av);                
@@ -74,7 +85,7 @@ public class Avaliacao {
         try {
             File arquivo = new File("Relatorio.csv");
             FileWriter fw = new FileWriter(arquivo, true);
-            fw.write(this.getNome() + "," + this.getDisciplina() + "," + this.getMedia() + "," + this.getPeso() + ",0" + "\n");
+            fw.write(this.getDisciplina() + "," + this.getMedia() + "," + this.getNome() + "," + this.getPeso() + ",0" + "\n"); //trocar aki
             fw.flush();
             fw.close();
         } catch (Exception e) {
