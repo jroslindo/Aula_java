@@ -24,7 +24,7 @@ import javafx.scene.control.TextField;
 public class AdicionarNovaAvaliacaoController extends InterfaceUsuario{
 
     public AdicionarNovaAvaliacaoController() {
-        super("Adicionar nova avaliação.fxml");
+        super("Adicionar nova avaliacao.fxml");
     }    
     ObservableList<String> ListaDeDisciplinas = FXCollections.observableArrayList("Fisica", "Matematica");
     ObservableList<String> ListaMs = FXCollections.observableArrayList("M1","M2","M3");

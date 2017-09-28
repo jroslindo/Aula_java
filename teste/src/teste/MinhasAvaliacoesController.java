@@ -25,7 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class MinhasAvaliacoesController extends InterfaceUsuario {
 
     public MinhasAvaliacoesController() {
-        super("Minhas Avaliações.fxml");
+        super("Minhas Avaliacoes.fxml");
     }
     
     

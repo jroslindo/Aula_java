@@ -26,7 +26,6 @@ public class JanelaPrincipalController extends InterfaceUsuario {
     }
     
     
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -35,6 +34,11 @@ public class JanelaPrincipalController extends InterfaceUsuario {
     @FXML
     public void VaiParaMinhasAvaliacoes (ActionEvent evento){
         MinhasAvaliacoesController proximaTela = new MinhasAvaliacoesController();
+        GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
+    }
+    
+    public void vaiParaRelatorio (ActionEvent evento){
+        RelatorioController proximaTela = new RelatorioController();
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
     }
     
