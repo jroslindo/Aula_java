@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Adicionar nova avaliações">
+      <Label layoutX="14.0" layoutY="14.0" text="Adicionar novas avaliações">
          <font>
             <Font name="Comic Sans MS" size="22.0" />
          </font>
@@ -20,33 +20,33 @@
          </font>
       </Label>
       <TextField fx:id="textNome" layoutX="76.0" layoutY="115.0" prefHeight="26.0" prefWidth="484.0" />
-      <Label layoutX="81.0" layoutY="151.0" text="Peso:">
+      <Label layoutX="78.0" layoutY="154.0" text="Peso:">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="textPeso" layoutX="92.0" layoutY="179.0" prefHeight="26.0" prefWidth="467.0" />
-      <Label layoutX="86.0" layoutY="232.0" text="Disciplina:">
+      <TextField fx:id="textPeso" layoutX="76.0" layoutY="179.0" prefHeight="26.0" prefWidth="161.0" />
+      <Label layoutX="76.0" layoutY="227.0" text="Disciplina:">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="99.0" layoutY="307.0" text="Média:">
+      <Label layoutX="75.0" layoutY="309.0" text="Média:">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="431.0" layoutY="290.0" mnemonicParsing="false" onAction="#voltar" text="Voltar">
+      <Button layoutX="373.0" layoutY="346.0" mnemonicParsing="false" onAction="#voltar" text="Voltar">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="447.0" layoutY="239.0" mnemonicParsing="false" onAction="#salvar" text="Salvar">
+      <Button layoutX="482.0" layoutY="346.0" mnemonicParsing="false" onAction="#salvar" text="Salvar">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Button>
-      <ComboBox fx:id="ComboDisciplina" layoutX="85.0" layoutY="259.0" prefWidth="150.0" promptText="Selecione..." />
-      <ComboBox fx:id="ComboMs" layoutX="85.0" layoutY="328.0" prefWidth="150.0" promptText="Selecione..." />
+      <ComboBox fx:id="ComboDisciplina" layoutX="74.0" layoutY="264.0" prefWidth="150.0" promptText="Selecione..." />
+      <ComboBox fx:id="ComboMs" layoutX="74.0" layoutY="339.0" prefWidth="150.0" promptText="Selecione..." />
    </children>
 </AnchorPane>

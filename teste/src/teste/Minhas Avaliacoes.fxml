@@ -14,12 +14,12 @@
             <Font name="Comic Sans MS" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="89.0" layoutY="90.0" mnemonicParsing="false" onAction="#vaiParaInformarNota" prefHeight="25.0" prefWidth="150.0" text="Informar nota">
+      <Button layoutX="16.0" layoutY="90.0" mnemonicParsing="false" onAction="#vaiParaInformarNota" prefHeight="26.0" prefWidth="181.0" text="Informar nota">
          <font>
             <Font name="Comic Sans MS" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="387.0" layoutY="90.0" mnemonicParsing="false" onAction="#vaiParaNovaAvaliação" prefHeight="26.0" prefWidth="195.0" text="Adicionar nova avaliação">
+      <Button layoutX="404.0" layoutY="90.0" mnemonicParsing="false" onAction="#vaiParaNovaAvaliação" prefHeight="26.0" prefWidth="181.0" text="Adicionar nova avaliação">
          <font>
             <Font name="Comic Sans MS" size="12.0" />
          </font>
@@ -33,7 +33,7 @@
             <TableColumn fx:id="minhaNotaid" prefWidth="93.33331298828125" text="Minha nota" />
         </columns>
       </TableView>
-      <Button layoutX="101.0" layoutY="356.0" maxHeight="-Infinity" mnemonicParsing="false" onAction="#voltar" prefHeight="28.0" prefWidth="63.0" text="Voltar">
+      <Button layoutX="16.0" layoutY="358.0" maxHeight="-Infinity" mnemonicParsing="false" onAction="#voltar" prefHeight="28.0" prefWidth="63.0" text="Voltar">
          <font>
             <Font name="Comic Sans MS" size="12.0" />
          </font>
