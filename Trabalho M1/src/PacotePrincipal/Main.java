@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teste;
+package PacotePrincipal;
 
 import java.io.PrintWriter;
 import javafx.application.Application;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author João
  */
-public class Teste extends Application {
+public class Main extends Application {
     
     @Override
     public void start(Stage primaryStage)  {   
