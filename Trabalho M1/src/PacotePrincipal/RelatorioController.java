@@ -103,7 +103,7 @@ public class RelatorioController extends InterfaceUsuario {
             Double pesoTotalM3 = 0.0;
             int i = 0;
             while (i < salva.size()) { //motivos para ter feito aki ao invez da função, se eu fizer aki ao ler o arquivo uma vez ele ja tem todos os dados prontos
-                String[] separa = salva.get(i).split(",");// se eu chamasse a função ele teria q ler o arquivo 3 vzs para completar os dados, por questao de otimização eu prefiri fazer assim
+                String[] separa = salva.get(i).split(",");// se eu chamasse a função ele teria q ler o arquivo 3 vzs para completar os dados, por questao de otimização eu preferi fazer assim
 
                 if (separa[0].equals(Comboid.getValue()) && separa[1].equals("M1")) {
                     m1 += Double.parseDouble(separa[4]) * Double.parseDouble(separa[3]);

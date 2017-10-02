@@ -28,7 +28,7 @@ public class JanelaPrincipalController extends InterfaceUsuario {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
     @FXML

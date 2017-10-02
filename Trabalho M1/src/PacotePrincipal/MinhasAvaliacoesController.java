@@ -67,6 +67,7 @@ public class MinhasAvaliacoesController extends InterfaceUsuario {
         proximaTela.Disciplina=tabelaid.getSelectionModel().getSelectedItem().getDisciplina();
         proximaTela.media=tabelaid.getSelectionModel().getSelectedItem().getMedia();
         proximaTela.index=posi;
+        proximaTela.nota=tabelaid.getSelectionModel().getSelectedItem().getNota();
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
     }
     
