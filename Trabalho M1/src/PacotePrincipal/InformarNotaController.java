@@ -33,15 +33,15 @@ public class InformarNotaController extends InterfaceUsuario {
     public String nome;
     public String media;
     public String Disciplina;
-    @FXML 
+    @FXML
     public TextField notaid;
-    @FXML 
+    @FXML
     public Label nomeid;
-    @FXML 
+    @FXML
     public Label disciplinaid;
-    @FXML 
+    @FXML
     public Label mediaid;
-    
+
     /**
      * Initializes the controller class.
      */
@@ -50,57 +50,52 @@ public class InformarNotaController extends InterfaceUsuario {
         nomeid.setText(nome);
         disciplinaid.setText(Disciplina);
         mediaid.setText(media);
-        
-    }    
-    
+
+    }
+
     @FXML
-    public void voltar (ActionEvent evento){
+    public void voltar(ActionEvent evento) {
         GerenciadorJanela.obterInstancia().voltar();
     }
-    
+
     @FXML
-    public void salvar (ActionEvent evento){
-         ArrayList <String> salva= new ArrayList();
+    public void salvar(ActionEvent evento) {
+        ArrayList<String> salva = new ArrayList();
         try {
             FileReader arq = new FileReader("Relatorio.csv");
             BufferedReader lerArq = new BufferedReader(arq);
-           
+
             String linha = lerArq.readLine();
             while (linha != null) {
-                salva.add(linha);               
+                salva.add(linha);
                 linha = lerArq.readLine();
-            }            
+            }
             arq.close();
+            String modifica = salva.get(index);
+            modifica += notaid.getText();
+            salva.remove(index);
+            salva.add(index, modifica);
+            int i = 0;
+
+            try {
+                File arquivo = new File("Relatorio.csv");
+                FileWriter fw = new FileWriter(arquivo);
+                for (i = 0; i < salva.size(); i++) {
+                    fw.write(salva.get(i) + "\n");
+                }
+                fw.flush();
+                fw.close();
+            } catch (Exception e) {
+                System.out.println("Não foi possivel abrir ou criar o arquivo");
+            }
+            Avaliacao volta = new Avaliacao();
+            volta.atualizar();
+
         } catch (IOException e) {
             System.err.printf("Erro na abertura do arquivo: %s.\n",
                     e.getMessage());
         }
-        
-        String modifica = salva.get(index);
-        modifica += notaid.getText();
-        salva.remove(index);
-        salva.add(index, modifica);
-        int i=0;
-       /* while (i < salva.size()){
-            System.out.println(salva.get(i));
-            i++;
-        }*/
-        
-        try {
-            File arquivo = new File("Relatorio.csv");
-            FileWriter fw = new FileWriter(arquivo);
-            for (i=0; i<salva.size();i++){
-                fw.write(salva.get(i)+"\n");
-            }
-            fw.flush();
-            fw.close();
-        } catch (Exception e) {
-            System.out.println("Não foi possivel abrir ou criar o arquivo");
-        }
-        
-        Avaliacao volta = new Avaliacao();
-        volta.atualizar();
-        
+
     }
-    
+
 }

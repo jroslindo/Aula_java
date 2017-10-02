@@ -10,8 +10,8 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ComboBox fx:id="Comboid" layoutX="61.0" layoutY="23.0" prefHeight="26.0" prefWidth="224.0" promptText="Selecione a materia..." />
-      <Button layoutX="504.0" layoutY="363.0" mnemonicParsing="false" onAction="#Mostrar" text="Mostrar" />
-      <BarChart fx:id="graficoid" layoutX="50.0" layoutY="61.0" prefHeight="314.0" prefWidth="501.0" title="Notas">
+      <Button layoutX="429.0" layoutY="23.0" mnemonicParsing="false" onAction="#Mostrar" text="Mostrar" />
+      <BarChart fx:id="graficoid" layoutX="50.0" layoutY="72.0" prefHeight="314.0" prefWidth="501.0" title="Notas">
         <xAxis>
           <CategoryAxis side="BOTTOM" fx:id="xid" />
         </xAxis>
@@ -19,6 +19,6 @@
           <NumberAxis fx:id="yid" side="LEFT" upperBound="9.0" />
         </yAxis>
       </BarChart>
-      <Button layoutX="419.0" layoutY="363.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="58.0" text="Voltar" />
+      <Button layoutX="323.0" layoutY="23.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="58.0" text="Voltar" />
    </children>
 </AnchorPane>

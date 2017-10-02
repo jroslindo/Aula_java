@@ -49,18 +49,18 @@ public class MinhasAvaliacoesController extends InterfaceUsuario {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) { //func atualizarcriada la embaixo
         MinhasAvaliacoesController.this.atualizar();
     }    
     
     @FXML
     public void vaiParaNovaAvaliação (ActionEvent evento){        
-        AdicionarNovaAvaliacaoController proximaTela = new AdicionarNovaAvaliacaoController();        
+        AdicionarNovaAvaliacaoController proximaTela = new AdicionarNovaAvaliacaoController();     // troca de tela simples    
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
     }
     
     @FXML
-    public void vaiParaInformarNota (ActionEvent evento){
+    public void vaiParaInformarNota (ActionEvent evento){ // passa os parametros de auto preenchimento
         int posi = tabelaid.getSelectionModel().getSelectedItem().getIdentificadorNoArquivo();           
         InformarNotaController proximaTela = new InformarNotaController();
         proximaTela.nome=tabelaid.getSelectionModel().getSelectedItem().getNome();
@@ -71,17 +71,17 @@ public class MinhasAvaliacoesController extends InterfaceUsuario {
     }
     
     @FXML
-    public void voltar (ActionEvent evento){        
+    public void voltar (ActionEvent evento){  // voltar
         GerenciadorJanela.obterInstancia().voltar();
     }
     
-    public void atualizar (){
+    public void atualizar (){ // o atualizador da tabela
         ArrayList <Avaliacao> arrayDeAvaliacoes = Avaliacao.obterListaAvaliacoes();        
-        ObservableList<Avaliacao> Colecao = FXCollections.observableArrayList();
+        ObservableList<Avaliacao> Colecao = FXCollections.observableArrayList(); // recebe por parametros
         
         int i=0;
         while (i<arrayDeAvaliacoes.size()){
-            Colecao.add(arrayDeAvaliacoes.get(i));
+            Colecao.add(arrayDeAvaliacoes.get(i));//da add na collection
             i++;
         }
         

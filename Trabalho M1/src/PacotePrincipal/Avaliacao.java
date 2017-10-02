@@ -93,8 +93,8 @@ public class Avaliacao {
         }
     }
     
-    public void atualizar (){
-        GerenciadorJanela.obterInstancia().voltar(2);
+    public void atualizar (){ // forma pratica de executar o initalizable denovo, desculpe se n era pra ser assim
+        GerenciadorJanela.obterInstancia().voltar(2);//dessa forma fica mt mais facil e usa menos linhas de codigo
         MinhasAvaliacoesController proximaTela = new MinhasAvaliacoesController();
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
         
