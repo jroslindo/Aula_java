@@ -2,13 +2,13 @@
 <jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Calculadora wow.jnlp">
   <information>
     <title>Calculadora wow</title>
-    <vendor>Jo√£o</vendor>
+    <vendor>Jo„o</vendor>
     <description>null</description>
     <offline-allowed/>
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Calculadora_wow.jar" size="3516" download="eager" />
+    <jar href="Calculadora_wow.jar" size="3519" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Calculadora wow" >
     <param name="requiredFXVersion" value="8.0+"/>
